@@ -1,24 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eur-Ea-WWf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Character Collection View Controller-->
+        <scene sceneID="vTj-LX-7BD">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <collectionViewController id="Zlr-qq-zfc" customClass="CharacterCollectionViewController" customModule="Chinese_Study" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KfS-bH-5NE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3bs-lD-MnU">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCell" id="0pK-ui-b81" customClass="CharacterCell" customModule="Chinese_Study" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brz-qX-tuI">
+                                            <rect key="frame" x="75" y="75" width="0.0" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="brz-qX-tuI" firstAttribute="centerX" secondItem="0pK-ui-b81" secondAttribute="centerX" id="MiW-E3-Is7"/>
+                                    <constraint firstItem="brz-qX-tuI" firstAttribute="centerY" secondItem="0pK-ui-b81" secondAttribute="centerY" id="wOE-um-ojZ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="characterLabel" destination="brz-qX-tuI" id="g2D-Q4-qig"/>
+                                    <segue destination="gdq-Ac-Y8m" kind="show" identifier="translation" id="w96-tq-dWE"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Zlr-qq-zfc" id="8mw-zk-msA"/>
+                            <outlet property="delegate" destination="Zlr-qq-zfc" id="hDt-wh-2Wx"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="fF2-MY-Hi6"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5k-3H-0JC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1100" y="229.83508245877064"/>
+        </scene>
+        <!--Translation View Controller-->
+        <scene sceneID="160-bu-5fR">
+            <objects>
+                <viewController id="gdq-Ac-Y8m" customClass="TranslationViewController" customModule="Chinese_Study" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fw1-2X-rqf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-6W-Sni">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjE-wi-boU">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxo-in-iTP">
+                                        <rect key="frame" x="0.0" y="137" width="375" height="137"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR2-l7-S6j">
+                                        <rect key="frame" x="0.0" y="274" width="375" height="96"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Read aloud (Chinese)"/>
+                                        <connections>
+                                            <action selector="readAloudTapped:" destination="gdq-Ac-Y8m" eventType="touchUpInside" id="Hz6-uK-46M"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3C-lh-vQE">
+                                        <rect key="frame" x="0.0" y="370" width="375" height="137"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7Y-uk-ueG">
+                                        <rect key="frame" x="0.0" y="507" width="375" height="96"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Read aloud (English)"/>
+                                        <connections>
+                                            <action selector="readAloudEnglishTapped:" destination="gdq-Ac-Y8m" eventType="touchUpInside" id="bjR-uz-di5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Cz-kB-c94" firstAttribute="bottom" secondItem="OIb-6W-Sni" secondAttribute="bottom" id="K1i-4H-bZc"/>
+                            <constraint firstItem="OIb-6W-Sni" firstAttribute="leading" secondItem="5Cz-kB-c94" secondAttribute="leading" id="SZN-yA-DZT"/>
+                            <constraint firstItem="OIb-6W-Sni" firstAttribute="top" secondItem="5Cz-kB-c94" secondAttribute="top" id="X54-Hx-uaG"/>
+                            <constraint firstItem="5Cz-kB-c94" firstAttribute="trailing" secondItem="OIb-6W-Sni" secondAttribute="trailing" id="uvx-4S-NZR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Cz-kB-c94"/>
+                    </view>
+                    <connections>
+                        <outlet property="chineseCharacter" destination="UjE-wi-boU" id="Rtx-bG-zp4"/>
+                        <outlet property="englishTranslation" destination="G3C-lh-vQE" id="7Nz-6c-W3H"/>
+                        <outlet property="pinyin" destination="Mxo-in-iTP" id="X9u-nX-O0b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GiH-ta-I4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="230"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B8W-hO-eig">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eur-Ea-WWf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0xu-Kv-gpI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zlr-qq-zfc" kind="relationship" relationship="rootViewController" id="4FQ-dx-k5P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJK-b6-dZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="229.83508245877064"/>
         </scene>
     </scenes>
 </document>
